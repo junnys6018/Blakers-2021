@@ -9,17 +9,38 @@
 \pagestyle{fancy}
 \fancyhead{} %clears default header
 \fancyfoot{} %clears default footer
-\fancyhead[R]{Ethan Lim} %\slshape makes itallics
-\fancyfoot[C]{}
-%\renewcommand{\headrulewidth}{0pt} removes headerline
-
-%\title{Sample Latex Paper} simple title, add \maketitle after 
-%\author{Jun Lim}							\begin{document}
-%\date{\today}
-
+\fancyhead[L]{Ethan Lim} %\slshape makes itallics
 
 \begin{document}
 
-text
+\section*{Question 1}
+We first prove a more simple inequality, $\forall a,b\in\mathbb{R}:\: a^2-ab+b^2\geq0$,
+with equality iff $a=b=0$. If $a$ and $b$ have different signs, then $-ab\geq0$,
+and so $a^2-ab+b^2\geq0$. So suppose $a$ and $b$ have the same sign, note the following,
+\begin{align}
+	(a-b)^2 & \geq0 \nonumber \\
+	a^2-2ab+b^2 & \geq0 \nonumber \\
+	a^2-ab+b^2 & \geq ab 
+\end{align}
 
+If $a$ and $b$ have the same sign, then $ab\geq0$, so (1) implies that $a^2-ab+b^2\geq0$.
+
+We now show that $a^2-ab+b^2=0$ iff $a=b=0$. The reverse direction is clear,
+so suppose that $a^2-ab+b^2=0$. Now it cannot be the case that $a>0$ and $b<0$, since
+if that were the case, then $-ab>0$, implying that $a^2-ab+b^2>0$. By symmetric argument,
+it cannot be that $a<0$ and $b>0$. Hence either $a,b\geq0$ or $a,b\leq0$, then it follows that
+$ab\geq0$, also (1) implies that $ab\leq a^2-ab+b^2=0$. So it must be that $ab=0$, hence
+$a=0$ or $b=0$, without loss of generality, assume $a=0$, then $a^2-ab+b^2=0$ implies that
+$b^2=0$ so $b=0$. 
+
+With this inequality established, let $a=x-1$ and $b=y-1$, then,
+\begin{align*}
+	(x-1)^2-(x-1)(y-1)+(y-1)^2 & \geq 0 \\
+	(x^2-2x+1)-(xy-x-y+1)+(y^2-2y+1) & \geq 0 \\
+	x^2+y^2-xy-x-y+1 & \geq 0 \\ 
+	x^2+y^2+2-(xy+x+y+1) & \geq 0 \\ 
+	x^2+y^2+2-(x+1)(y+1) & \geq 0
+\end{align*}
+Which implies that $x^2+y^2+2\geq(x+1)(y+1)$, as required. We have equality iff
+$a=x-1=0$ and $b=y-1=0$. ie iff $x=y=1$
 \end{document}
