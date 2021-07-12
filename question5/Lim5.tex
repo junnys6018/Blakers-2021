@@ -40,13 +40,15 @@ sides.
 	\tkzGetPoint{C'}
 
 	% mark right angles
-	\tkzInterLL(A,B)(I,C')
-	\tkzGetPoint{d}
 	\tkzInterLL(B,C)(I,A')
-	\tkzGetPoint{e}
+	\tkzGetPoint{X}
+	\tkzInterLL(A,C)(I,B')
+	\tkzGetPoint{Y}
+	\tkzInterLL(A,B)(I,C')
+	\tkzGetPoint{Z}
 	
-	\tkzMarkRightAngle[fill=orange!20,size=0.1](B,d,I)
-	\tkzMarkRightAngle[fill=orange!20,size=0.1](B,e,I)
+	\tkzMarkRightAngle[fill=orange!20,size=0.1](B,X,I)
+	\tkzMarkRightAngle[fill=orange!20,size=0.1](B,Z,I)
 
 	% angles
 	\tkzFillAngle[size=0.3,fill=gray!20](C,B,A)
@@ -67,7 +69,7 @@ sides.
 	\tkzDrawSegment[orange,dashed](I,C')
 
 	% draw points
-	\tkzDrawPoints(A,B,C,I)
+	\tkzDrawPoints(A,B,C,X,Y,Z,I)
 	\tkzDrawPoints[orange](A',B',C')
 	\tkzDrawSegment[orange](A',B')
 	\tkzDrawSegment[orange](B',C')
@@ -77,14 +79,36 @@ sides.
 	\tkzLabelPoint[above](A){$A$}
 	\tkzLabelPoint[left](B){$B$}
 	\tkzLabelPoint[right](C){$C$}
+	\tkzLabelPoint[below left](X){$X$}
+	\tkzLabelPoint[above](Y){$Y$}
+	\tkzLabelPoint[above](Z){$Z$}
 	\tkzLabelPoint[left](I){$I$}
 	\tkzLabelPoint[color=orange,below](A'){$A'$}
 	\tkzLabelPoint[color=orange,above right](B'){$B'$}
 	\tkzLabelPoint[color=orange,above left](C'){$C'$}
 
+	% mark lines
+	\tkzMarkSegment[color=orange,pos=0.5,mark=|](I,X)
+	\tkzMarkSegment[color=orange,pos=0.5,mark=|](I,Y)
+	\tkzMarkSegment[color=orange,pos=0.5,mark=|](I,Z)
+	\tkzMarkSegment[color=orange,pos=0.5,mark=|](X,A')
+	\tkzMarkSegment[color=orange,pos=0.5,mark=|](Y,B')
+	\tkzMarkSegment[color=orange,pos=0.5,mark=|](Z,C')
+
 \end{tikzpicture}
 \end{center}
 
-Let $\alpha=\angle ABC$
+Let $\alpha=\angle ABC$, $\gamma_1=\angle A'IB'$ and $\gamma_2=\angle B'IC'$, let $X=BC\cap A'I$, $Y=AC\cap B'I$, $Z=AB\cap C'I$. 
 
+Since $C'$ is the reflection of the point $I$ about the line $AB$, it follows that $\angle IZB=90^\circ$ and $|IZ|=|ZC'|$, similarly, $\angle IXC=90^\circ$, $|IX|=|XA'|$, $\angle IYA=90^\circ$ and $|IY|=|YB'|$. Since $IX$ is perpendicular to $BC$, it follows that the distance from $I$ to the line $BC$ is equal to the length of the segment $IX$, by similar reasoning, the distance from $I$ to $AC$ is $|IY|$, and the distance from $I$ to $AB$ is $|IZ|$, since $I$ is the in-center of $\triangle ABC$, it follows that $|IX|=|IY|=|IZ|$. From this it follows that $|IA'|=|IB'|=|IC'|$.
+
+Looking at quadrilateral $BXIZ$, we can deduce that $\angle XIZ=180^\circ-\alpha$, hence $\gamma_1+\gamma_2=360^\circ-\angle XIZ=180^\circ+\alpha$. Now $\triangle IC'B'$ is isosceles, so $\angle IB'C'=\displaystyle\frac{180^\circ-\gamma_2}{2}$, similarly, $\angle IB'A'=\displaystyle\frac{180^\circ-\gamma_1}{2}$. Hence
+\begin{align*}
+	\angle A'B'C'&=\angle IB'C'+\angle IB'A'\\
+	&=\frac{360^\circ-(\gamma_1+\gamma_2)}{2}\\
+	&=\frac{360^\circ-(180^\circ+\alpha)}{2}\\
+	&=90^\circ-\frac{\alpha}{2}\\
+	&=90^\circ-\frac{\angle ABC}{2}\\
+\end{align*}
+Hence $\angle A'B'C'$ depends on $\angle ABC$ only, and therefore does not depend on $\angle BAC$
 \end{document}
